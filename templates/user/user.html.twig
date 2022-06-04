@@ -1,0 +1,49 @@
+{% extends 'acceuil.html.twig' %}
+{% block title %}Liste users{% endblock %}
+
+{% block body %}
+  <div class="content-wrapper">
+    <!-- Content -->
+
+    <div class="container-xxl flex-grow-1 container-p-y">
+      <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Tables /</span> Tables utilisateurs</h4>
+
+      <hr class="my-5" />
+
+      <!-- Responsive Table -->
+      <div class="card">
+        <h5 class="card-header">Tous les utilisateurs</h5>
+        <div class="table-responsive text-nowrap">
+          <table class="table">
+            <thead>
+              <tr class="text-nowrap">
+                <th>id</th>
+                <th>nom</th>
+                <th>prenom</th>
+                <th>email</th>
+              </tr>
+            </thead>
+            <tbody>
+             {% for user in users %}
+                <tr>
+                 <th scope="row">{{user.id}}</th>
+                 <th scope="row">{{user.nom}}</th>
+                  <th scope="row">{{user.prenom}}</th>
+                  <th scope="row">{{user.email}}</th>
+                  <th> <button type="button" class="btn btn-danger">Supprimer</button> </th>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!--/ Responsive Table -->
+    </div>
+    <!-- / Content -->
+
+    <!-- Footer -->
+    {% block footer %}
+
+    {% endblock %}
+
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'acceuil.html.twig' %}
+{% block title %}Ajout produit{% endblock %}
+
+{% block body %}
+  <form method="post" action=" {{ path ('ajout_produit')}}">
+  <div class="content-wrapper">
+    <div class="container-xxl flex-grow-1 container-p-y">
+        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Actions /</span> Ajouts produits</h4>
+        <div class="row">
+        <!-- Basic -->
+        <div class="col-md-6">
+          <div class="card mb-4">
+            <h5 class="card-header">Info produits</h5>
+            <div class="card-body demo-vertical-spacing demo-only-element">
+              <div>
+                <label for="defaultFormControlInput" class="form-label">libelle produit</label>
+                <input type="text" name="libelle" class="form-control" id="defaultFormControlInput" placeholder="MacBook" aria-describedby="defaultFormControlHelp"/>
+              </div>
+
+              <div class="mb-3">
+                <label for="exampleFormControlSelect1" class="form-label">categorie produit</label>
+                <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example">
+                
+                  <option selected>select categorie</option>
+                  <option value="1">Ordinateur</option>
+                  <option value="2">Driver</option>
+                  <option value="3">Portable</option>
+                  {# {% for categories in categorie %}
+                  <option selected>select categorie</option>
+                  <option value="{{ categorie.id }}">{{ categorie.nom_cat }}</option>
+                {% endfor %} #}
+                </select>
+              </div>
+
+              <div>
+                <label for="defaultFormControlInput" class="form-label">Quantité</label>
+                <input type="number" name="stock"  min="0" class="form-control" id="defaultFormControlInput" placeholder="500" aria-describedby="defaultFormControlHelp"/>
+              </div>
+                <button type="submit" name="ajouter" class="btn btn-primary">Ajouter</button>
+            </div>
+          </div>
+        </div>
+        <div> </div>
+
+    </div>
+
+</div>
+</form>
+   
+
+    <!-- Footer -->
+    {% block footer %}
+
+    {% endblock %}
+
+{% endblock %}

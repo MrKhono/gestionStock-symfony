@@ -1,0 +1,49 @@
+{% extends 'acceuil.html.twig' %}
+{% block title %}Produit Stock{% endblock %}
+
+{% block body %}
+  <div class="content-wrapper">
+    <!-- Content -->
+
+    <div class="container-xxl flex-grow-1 container-p-y">
+      <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Tables /</span> Tables produits</h4>
+
+      <hr class="my-5" />
+
+      <!-- Responsive Table -->
+      <div class="card">
+        <h5 class="card-header">Tous les produits</h5>
+        <div class="table-responsive text-nowrap">
+          <table class="table">
+            <thead>
+              <tr class="text-nowrap">
+                <th>id</th>
+                <th>libelle</th>
+                <th>Stock</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for produit in produits %}
+                <tr>
+                 <th scope="row">{{produit.id}}</th>
+                 <th scope="row">{{produit.libelle}}</th>
+                  <th scope="row">{{produit.stock}}</th>
+                  <th> <button type="button" class="btn btn-danger">Supprimer</button> </th>
+                </tr>
+              {% endfor %}
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!--/ Responsive Table -->
+    </div>
+    <!-- / Content -->
+
+    <!-- Footer -->
+    {% block footer %}
+
+    {% endblock %}
+
+{% endblock %}
