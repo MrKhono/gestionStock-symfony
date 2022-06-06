@@ -29,24 +29,24 @@ class LoginController extends AbstractController
     {
         extract($_POST);
 
-        if(isset($_POST['envoyer'])){
-
-            $users = $doctrine->getRepository(Users::class)->findAll();
-
-            // foreach($users as $user){
-            //     if($email = $users['email'] || $password = $users['password']){
-
-            //         return $this->render('acceuil.html.twig', [
-            //             'users' => $users,
-            //         ]);
-            //     }
-            // }
-
+        $users = $doctrine->getRepository(Users::class)->findAll();
+        foreach ($users as $value) {
+            # code...
+            if($value->getEmail() == $email && $value->getPassword() == $password){
+                return $this->render('acceuil.html.twig', [
+                    'users' => $value,
+                    'listUser' => $users
+                ]);
+            }else{
+                return $this->render('login/index.html.twig');
+            }
         }
+
         
-        return $this->render('acceuil.html.twig', [
-            'users' => $users,
-        ]);
+        
+        // return $this->render('acceuil.html.twig', [
+        //     'users' => $users,
+        // ]);
     }
 
 
